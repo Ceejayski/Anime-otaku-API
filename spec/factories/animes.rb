@@ -3,9 +3,8 @@ FactoryBot.define do
     sequence(:name) { |x| "MyString#{x}" }
     description { 'MyString' }
     sequence(:slug) { |x| "MyString#{x}" }
-    header_image do
-      [Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/test.png'), 'spec/fixtures/test.png')]
-    end
+    rating { [1, 2, 3, 4, 5].sample }
+    header_image { Rack::Test::UploadedFile.new(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png') }
     association :user
   end
 end

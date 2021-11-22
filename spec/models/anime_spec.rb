@@ -9,9 +9,11 @@ RSpec.describe Anime, type: :model do
     it { should validate_presence_of :name }
     it { should validate_presence_of :description }
     it { should validate_presence_of :slug }
-    it { should validate_presence_of :header_image }
+    it { should validate_presence_of :rating }
+    it { is_expected.to validate_numericality_of(:rating).is_less_than_or_equal_to(5) }
   end
   context '#association' do
     it { should belong_to :user }
+    it{ should have_many :favourites }
   end
 end

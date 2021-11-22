@@ -1,0 +1,29 @@
+class Api::V1::FavouritesController < ApplicationController
+  def index
+    current_user_favorites = current_user.favorite_anime
+    render jsonapi: current_user_favorites
+  end
+
+  def create
+    if !already_favourite?
+      @favorite = current_user.favourites.create!(anime_id: params[:anime_id])
+      favorite_anime = current_user.favourites.last
+      render jsonapi: favorite_anime, status: 201
+    else
+      render json: { message: 'Already in favourites' }, status: 409
+    end
+  end
+
+  def destroy
+    @favorite = Anime.favourites.find(params[:id])
+    @favorite.destroy
+    head :no_content
+  end
+
+  private
+
+  def already_favourite?
+    Favourite.where(user_id: current_user.id, anime_id:
+      params[:anime_id]).exists?
+  end
+end

@@ -1,18 +1,18 @@
 development:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['api_key']
-  api_secret: ENV['api_secret']
+  cloud_name: dsxio8q2p
+  api_key: '791373482979431'
+  api_secret: IA4_auD9O0zbnV2i7UZ_IL0TTrQ
   enhance_image_tag: true
   static_file_support: false
 production:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['api_key']
-  api_secret: ENV['api_secret']
+  cloud_name: dsxio8q2p
+  api_key: '791373482979431'
+  api_secret: IA4_auD9O0zbnV2i7UZ_IL0TTrQ
   enhance_image_tag: true
   static_file_support: true
 test:
-  cloud_name: ENV['cloud_name']
-  api_key: ENV['api_key']
-  api_secret: ENV['api_secret']
+  cloud_name: dsxio8q2p
+  api_key: '791373482979431'
+  api_secret: IA4_auD9O0zbnV2i7UZ_IL0TTrQ
   enhance_image_tag: true
   static_file_support: false

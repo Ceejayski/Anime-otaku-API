@@ -7,13 +7,6 @@ class HeaderImageUploader < CarrierWave::Uploader::Base
   process convert: 'png'
   process tags: ['anime_picture']
 
-  if Rails.env.test? or Rails.env.cucumber?
-    CarrierWave.configure do |config|
-      config.storage = :file
-      config.enable_processing = false
-    end
-  end
-
   version :standard do
     process resize_to_fill: [2000, 1309, :north]
   end
@@ -63,7 +56,4 @@ class HeaderImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  CarrierWave.configure do |config|
-    config.cache_storage = :file
-  end
 end
