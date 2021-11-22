@@ -15,7 +15,7 @@ class Api::V1::FavouritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Anime.favourites.find(params[:id])
+    @favorite = current_user.favourites.find(params[:id])
     @favorite.destroy
     head :no_content
   end

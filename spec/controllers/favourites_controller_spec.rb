@@ -52,4 +52,29 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
       end
     end
   end
+  describe '#destroy' do
+    let(:user) { create :user }
+    let(:anime) { create :anime }
+    let(:favourite) { create :favourite }
+    subject { delete :destroy, params: { id: favourite.id } }
+    context 'when no code provided' do
+      it_behaves_like 'forbidden_requests'
+    end
+
+    context 'when invalid code provided' do
+      before { request.headers['authorization'] = 'Invalid token' }
+      it_behaves_like 'forbidden_requests'
+    end
+    context 'when authorized' do
+      let(:favourite2) { create :favourite, user_id: user.id }
+      subject { delete :destroy, params: { id: favourite2.id } }
+      before do
+        allow(AuthorizeApiRequest).to receive_message_chain(:call, :result).and_return(user)
+      end
+      it 'should have 204 status code' do
+        subject
+        expect(response).to have_http_status(:no_content)
+      end
+    end
+  end
 end
