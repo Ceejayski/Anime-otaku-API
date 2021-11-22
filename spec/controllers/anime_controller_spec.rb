@@ -33,7 +33,7 @@ RSpec.describe Api::V1::AnimesController, type: :controller do
   end
 
   describe '#show' do
-    let(:anime) { create :anime, rating: 5.0}
+    let(:anime) { create :anime, rating: 5.0 }
     subject { get :show, params: { id: anime.id } }
 
     it 'should return success response' do
@@ -43,7 +43,7 @@ RSpec.describe Api::V1::AnimesController, type: :controller do
 
     it 'should return proper json' do
       subject
-      expect(json_data['data']['attributes']['rating']).to eq( 5.0)
+      expect(json_data['data']['attributes']['rating']).to eq(5.0)
     end
   end
 end

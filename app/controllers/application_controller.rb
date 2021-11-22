@@ -9,6 +9,10 @@ class ApplicationController < ActionController::API
     authorization_error unless @current_user
   end
 
+  def authenticate_admin
+    authorization_error unless @current_user.admin
+  end
+
   def authorization_error
     errors = {
       'status' => '403',

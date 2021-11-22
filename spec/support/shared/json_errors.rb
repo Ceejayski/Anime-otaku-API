@@ -26,7 +26,7 @@ end
 
 shared_examples_for 'forbidden_requests' do
   let(:authorization_error) do
-    [{ 'detail' => "Only Admins can perform such action", 'source' => { 'pointer' => '/headers/authorization' },
+    [{ 'detail' => 'Only Admins can perform such action', 'source' => { 'pointer' => '/headers/authorization' },
        'status' => '403', 'title' => 'Not authorized' }]
   end
 

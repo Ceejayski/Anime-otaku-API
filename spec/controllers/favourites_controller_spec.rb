@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::FavouritesController, type: :controller do
   describe '#index' do
     subject { get :index }
-    
+
     context 'when no code provided' do
       it_behaves_like 'forbidden_requests'
     end
@@ -44,7 +44,7 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
       before do
         allow(AuthorizeApiRequest).to receive_message_chain(:call, :result).and_return(user)
       end
-      subject { post :create, params: {anime_id: anime.id} }
+      subject { post :create, params: { anime_id: anime.id } }
       it 'when success request sent' do
         subject
         expect(response).to have_http_status(:created)

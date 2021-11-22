@@ -20,16 +20,17 @@ gem 'puma', '~> 5.0'
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'acts-as-taggable-on'
 gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'figaro'
 gem 'friendly_id', '~> 5.4.0'
-gem 'jwt'
-gem 'simple_command'
 gem 'jsonapi.rb', '~> 1'
 gem 'jsonapi-serializer'
+gem 'jwt'
+gem 'simple_command'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

@@ -5,6 +5,7 @@ class Anime < ApplicationRecord
   validates :rating, numericality: { less_than_or_equal_to: 5 }
   # association
   has_many :favourites, dependent: :destroy
+  acts_as_taggable_on :genres
   # scopes
   scope :highest_rated, -> { order(rating: :desc) }
 

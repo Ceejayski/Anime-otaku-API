@@ -5,12 +5,12 @@ class Api::V1::FavouritesController < ApplicationController
   end
 
   def create
-    if !already_favourite?
+    if already_favourite?
+      render json: { message: 'Already in favourites' }, status: 409
+    else
       @favorite = current_user.favourites.create!(anime_id: params[:anime_id])
       favorite_anime = current_user.favourites.last
       render jsonapi: favorite_anime, status: 201
-    else
-      render json: { message: 'Already in favourites' }, status: 409
     end
   end
 
@@ -18,6 +18,8 @@ class Api::V1::FavouritesController < ApplicationController
     @favorite = current_user.favourites.find(params[:id])
     @favorite.destroy
     head :no_content
+  rescue StandardError
+    authorization_error
   end
 
   private

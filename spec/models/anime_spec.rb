@@ -14,6 +14,6 @@ RSpec.describe Anime, type: :model do
   end
   context '#association' do
     it { should belong_to :user }
-    it{ should have_many :favourites }
+    it { should have_many :favourites }
   end
 end
