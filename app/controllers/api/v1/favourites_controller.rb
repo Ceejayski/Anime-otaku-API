@@ -1,7 +1,9 @@
 class Api::V1::FavouritesController < ApplicationController
+  skip_before_action :authenticate_request, only: %i[index]
   def index
-    current_user_favorites = current_user.favorite_anime
-    render jsonapi: current_user_favorites
+    anime = Anime.find(params[:anime_id])
+    favorites = anime.favourites
+    render jsonapi: favorites
   end
 
   def create
