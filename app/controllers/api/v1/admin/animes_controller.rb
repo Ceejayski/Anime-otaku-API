@@ -1,8 +1,8 @@
 class Api::V1::Admin::AnimesController < ApplicationController
   before_action :authenticate_admin
   def index
-    user = user.all
-    render jsonapi: user
+    anime = current_user.animes
+    render jsonapi: anime
   end
 
   def create
@@ -15,16 +15,16 @@ class Api::V1::Admin::AnimesController < ApplicationController
 
   def update
     anime = current_user.animes.find(params[:id])
-    anime.update_attributes!(anime_params)
-    render jsonapi: anime, status: :ok
-  rescue ActiveRecord::RecordNotFound
-    authorization_error
-  rescue StandardError
-    render jsonapi_errors: anime.errors, status: :unprocessable_entity
+    authorization_error unless anime
+    if anime.update(anime_params)
+      render jsonapi: anime, status: :ok
+    else
+      render jsonapi_errors: anime.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    anime = Anime.find(params[:id])
+    anime = current_user.animes.find(params[:id])
     anime.destroy
     head :no_content
   rescue ActiveRecord::RecordNotFound

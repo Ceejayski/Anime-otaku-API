@@ -18,7 +18,7 @@ class Api::V1::Admin::UsersController < ApplicationController
       render json: { errors: errors }, status: 404
     else
       @user.update(admin: true)
-      render jsonapi: @user
+      render jsonapi: @user, status: :created
     end
   end
 
@@ -31,7 +31,7 @@ class Api::V1::Admin::UsersController < ApplicationController
     }
     if @user.admin?
       @user.update(admin: false)
-      render jsonapi: @user
+      render jsonapi: @user, status: :created
     else
       render json: { errors: errors }, status: 404
     end
@@ -42,10 +42,10 @@ class Api::V1::Admin::UsersController < ApplicationController
       'status' => '403',
       'source' => { 'pointer' => '/headers/authorization' },
       'title' => 'Not authorized',
-      'detail' => 'Cant delete current user'
+      'detail' => 'Can\'t delete current user or admins'
     }
 
-    if @user.id == current_user.id
+    if @user.id == current_user.id || @user.admin?
       render json: { errors: errors }, status: 403
     else
       @user.destroy

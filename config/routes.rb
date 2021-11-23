@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :admin do
         resources :users, only: %i[index destroy]
+        resources :animes, only: %i[index create update destroy]
         patch '/make_admin/:id', to: 'users#make_admin'
         patch '/remove_admin/:id', to: 'users#remove_admin'
       end
