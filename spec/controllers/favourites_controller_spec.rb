@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe Api::V1::FavouritesController, type: :controller do
-  let(:user) {create :user}
+  let(:user) { create :user }
   let(:anime) { create :anime }
   let(:favourite) { create :favourite, user_id: user.id, anime_id: anime.id }
   describe '#index' do
-    subject { get :index, params: { anime_id: anime.id} }
+    subject { get :index, params: { anime_id: anime.id } }
 
     it 'when success request sent' do
       favourite
@@ -14,7 +14,7 @@ RSpec.describe Api::V1::FavouritesController, type: :controller do
     end
   end
   describe '#create' do
-    subject { post :create, params: { anime_id: anime.id} }
+    subject { post :create, params: { anime_id: anime.id } }
 
     context 'when no code provided' do
       it_behaves_like 'forbidden_requests'

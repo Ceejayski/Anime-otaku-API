@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe Api::V1::UserFavouritesController, type: :controller do
   let(:user) { create :user }
   describe '#index' do
-    subject { get :index, params: { user_id: user.id} }
+    subject { get :index, params: { user_id: user.id } }
 
     context 'when no code provided' do
       it_behaves_like 'forbidden_requests'
@@ -16,7 +16,7 @@ RSpec.describe Api::V1::UserFavouritesController, type: :controller do
       let(:user) { create :user }
       let(:anime) { create :anime }
       let(:favourite) { create :favourite, user_id: user.id, anime_id: anime.id }
-      subject { get :index, params: { user_id: user.id} }
+      subject { get :index, params: { user_id: user.id } }
       before do
         allow(AuthorizeApiRequest).to receive_message_chain(:call, :result).and_return(user)
       end
