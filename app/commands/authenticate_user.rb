@@ -9,7 +9,7 @@ class AuthenticateUser
   def call
     return unless user
 
-    { auth_token: JsonWebToken.encode(user_id: user.id), username: user.username, admin: user.admin,
+    { auth_token: JsonWebToken.encode(user_id: user.id), id: user.id, username: user.username, admin: user.admin,
       message: 'Logged in Successfully' }
   end
 

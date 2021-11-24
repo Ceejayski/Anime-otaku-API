@@ -5,7 +5,7 @@ class Api::V1::RegistrationsController < ApplicationController
     user = User.new(registration_params)
     user.save!
     command = AuthenticateUser.call(user.email, user.password)
-    render json: { auth_token: command.result[:auth_token], username: user.username,
+    render json: { auth_token: command.result[:auth_token], id: user.id, username: user.username,
                    admin: user.admin, message: 'Signed up Successfully' },
            status: :created
   rescue ActiveRecord::RecordInvalid
