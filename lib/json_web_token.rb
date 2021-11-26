@@ -1,6 +1,6 @@
 class JsonWebToken
   class << self
-    SECRET = 'anime-otaku-out-for-blood-&-$'
+    SECRET = 'anime-otaku-out-for-blood-&-$'.freeze
     def encode(payload, exp = 24.hours.from_now)
       payload[:exp] = exp.to_i
       JWT.encode(payload, SECRET, 'HS256')
