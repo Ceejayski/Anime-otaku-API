@@ -69,15 +69,12 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
       context 'when invalid parameters provided' do
         let(:invalid_attributes) do
           {
-            data: {
-              attributes: {
-                name: '',
-                description: '',
-                rating: '',
-                genre_list: '',
-                header_image: nil
-              }
-            }
+            name: '',
+            description: '',
+            rating: '',
+            genre_list: '',
+            header_image: nil
+
           }
         end
 
@@ -112,15 +109,12 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
       context 'when success request sent' do
         let(:valid_attributes) do
           {
-            data: {
-              attributes: {
-                name: 'sirchi',
-                description: 'focus',
-                rating: 5,
-                genre_list: 'anime, scifi',
-                header_image: nil
-              }
-            }
+            name: 'sirchi',
+            description: 'focus',
+            rating: 5,
+            genre_list: 'anime, scifi',
+            header_image: nil
+
           }
         end
 
@@ -134,7 +128,7 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
         it 'should have proper json body' do
           subject
           expect(json['data']['attributes']['description']).to include(
-            valid_attributes[:data][:attributes][:description]
+            valid_attributes[:description]
           )
         end
 
@@ -178,15 +172,13 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
       context 'when invalid parameters provided' do
         let(:invalid_attributes) do
           {
-            data: {
-              attributes: {
-                name: '',
-                description: '',
-                rating: '',
-                genre_list: '',
-                header_image: nil
-              }
-            }
+
+            name: '',
+            description: '',
+            rating: '',
+            genre_list: '',
+            header_image: nil
+
           }
         end
 
@@ -221,16 +213,13 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
       context 'when success request sent' do
         let(:valid_attributes) do
           {
-            data: {
-              attributes: {
-                name: 'sirchi',
-                slug: 'sirchi',
-                description: 'focus',
-                rating: 5,
-                genre_list: 'anime, scifi',
-                header_image: nil
-              }
-            }
+
+            name: 'sirchi',
+            slug: 'sirchi',
+            description: 'focus',
+            rating: 5,
+            genre_list: 'anime, scifi',
+            header_image: nil
           }
         end
 
@@ -244,7 +233,7 @@ RSpec.describe Api::V1::Admin::AnimesController, type: :controller do
         it 'should have proper json body' do
           subject
           expect(json['data']['attributes']['description']).to include(
-            valid_attributes[:data][:attributes][:description]
+            valid_attributes[:description]
           )
         end
 

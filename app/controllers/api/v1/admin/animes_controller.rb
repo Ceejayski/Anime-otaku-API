@@ -34,8 +34,6 @@ class Api::V1::Admin::AnimesController < ApplicationController
   private
 
   def anime_params
-    params.require(:data).require(:attributes)
-      .permit(:name, :description, :header_image, :rating, :genre_list) ||
-      ActionController::Parameters.new
+    params.permit(:name, :description, :header_image, :rating, :genre_list)
   end
 end

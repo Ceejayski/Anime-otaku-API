@@ -12,16 +12,16 @@ class HeaderImageUploader < CarrierWave::Uploader::Base
       config.storage = :file
       config.enable_processing = false
     end
-  end
 
-  version :standard do
-    process resize_to_fill: [2000, 1309, :north]
-  end
+  else
+    version :standard do
+      process resize_to_fill: [2000, 1309, :north]
+    end
 
-  version :thumbnail do
-    resize_to_fit(520, 348)
+    version :thumbnail do
+      resize_to_fit(520, 348)
+    end
   end
-
   # Choose what kind of storage to use for this uploader:
   # storage :file
   # storage :fog
