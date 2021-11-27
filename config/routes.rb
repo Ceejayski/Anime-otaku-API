@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       end
       resources :users, only: %i[show] do
         get '/favourite', to: 'user_favourites#index'
+        delete '/remove_favorite/:id', to: 'user_favourites#destroy'
       end
       post 'sign_up', to: 'registrations#create'
       # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

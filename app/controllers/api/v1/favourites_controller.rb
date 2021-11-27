@@ -17,7 +17,7 @@ class Api::V1::FavouritesController < ApplicationController
   end
 
   def destroy
-    @favorite = current_user.favourites.find_by(anime_id: params[:id])
+    @favorite = current_user.favourites.find(params[:id])
     @favorite.destroy
     head :no_content
   rescue StandardError
