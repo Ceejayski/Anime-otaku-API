@@ -63,7 +63,4 @@ class HeaderImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-  CarrierWave.configure do |config|
-    config.cache_storage = :file
-  end
 end
