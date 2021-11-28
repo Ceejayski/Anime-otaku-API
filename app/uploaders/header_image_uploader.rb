@@ -21,7 +21,7 @@ class HeaderImageUploader < CarrierWave::Uploader::Base
     version :thumbnail do
       resize_to_fit(520, 348)
     end
-    
+   
   end
   # Choose what kind of storage to use for this uploader:
   # storage :file
