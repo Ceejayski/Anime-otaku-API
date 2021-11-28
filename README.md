@@ -29,7 +29,7 @@ A person having an intense or obsessive interest especially in the fields of ani
 - A proper authentication system has been implemented using JWT. Users are able to create a new account and login/logout securely.
 - Users has two main roles: Admin and Users
 - Admin can create, delete and update animes
-- Admin can also delete users 
+- Admin can also delete and make users admin. 
 - Users can see a list of different Animes.
 - Users can add Animes to their favorites list
 - Users can see all the Animes they have addd in the Favorites page.
@@ -39,8 +39,8 @@ A person having an intense or obsessive interest especially in the fields of ani
 
 The front-end(client) of the application for both the project's repository and the [live link](https://findyourdreamanime.netlify.app) are found here.
 
-- [GitHub Repo](https://github.com/Ceajayski/anime-otaku-client)
-- [Live Demo](https://findyourdreamanime.netlify.app/)
+- [GitHub Repo](https://github.com/Ceejayski/anime-otaku-client)
+- [Live Demo](https://silly-golick-1cef53.netlify.app/)
 
 ## 🔧 Built with<a name = "with"></a>
 
