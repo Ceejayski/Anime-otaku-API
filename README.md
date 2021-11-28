@@ -27,7 +27,7 @@ A person having an intense or obsessive interest especially in the fields of ani
 ## Main Features<a name = "features"></a>
 
 - A proper authentication system has been implemented using JWT. Users are able to create a new account and login/logout securely.
-- Users hazs two main roles: Admin and Users
+- Users has two main roles: Admin and Users
 - Admin can create, delete and update animes
 - Admin can also delete users 
 - Users can see a list of different Animes.
